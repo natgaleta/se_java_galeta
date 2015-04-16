@@ -10,12 +10,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- galetaGroup.addMovieTest -->
-      <class name="galetaGroup.LoginTest">
-        <methods>
-          <include name="init"/>
-          <include name="Test1"/>
-        </methods>
-      </class> <!-- galetaGroup.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
