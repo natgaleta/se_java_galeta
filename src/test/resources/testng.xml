@@ -4,7 +4,8 @@
 	<test name="Test1">
 		<parameter name="path" value="/"/>
 		<classes>
-		    <class name="galetaGroup.pages.HomePageTest"/>
+		    <class name="galetaGroup.LoginTest"/>
+		    <class name="galetaGroup.addMovieTest"/>
 		</classes>
 	</test>  
 </suite>

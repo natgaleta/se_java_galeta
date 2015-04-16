@@ -19,12 +19,12 @@ public class addMovieTest extends galetaGroup.pages.TestBase {
 
   @Test
   public void Test2() throws Exception {
-	  driver.get(baseUrl + "/php4dvd/");
-	    driver.findElement(By.id("username")).clear();
-	    driver.findElement(By.id("username")).sendKeys("admin");
-	    driver.findElement(By.name("password")).clear();
-	    driver.findElement(By.name("password")).sendKeys("admin");
-	    driver.findElement(By.name("submit")).click();
+    driver.get(baseUrl + "/php4dvd/");
+	driver.findElement(By.id("username")).clear();
+	driver.findElement(By.id("username")).sendKeys("admin");
+	driver.findElement(By.name("password")).clear();
+	driver.findElement(By.name("password")).sendKeys("admin");
+	driver.findElement(By.name("submit")).click();
     driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
     driver.findElement(By.cssSelector("img[alt=\"Save\"]")).click();
     driver.findElement(By.id("submit")).click();
@@ -37,6 +37,8 @@ public class addMovieTest extends galetaGroup.pages.TestBase {
     driver.findElement(By.name("aka")).clear();
     driver.findElement(By.name("aka")).sendKeys("Very new movie");
     driver.findElement(By.id("submit")).click();
+    driver.findElement(By.linkText("Log out")).click();
+    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to log out[\\s\\S]$"));
   }
 
   private boolean isElementPresent(By by) {

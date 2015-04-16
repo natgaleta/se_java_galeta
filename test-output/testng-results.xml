@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="38887" started-at="2015-04-16T09:21:36Z" finished-at="2015-04-16T09:22:14Z">
+  <suite name="Default suite" duration-ms="15510" started-at="2015-04-16T10:24:45Z" finished-at="2015-04-16T10:25:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="38887" started-at="2015-04-16T09:21:36Z" finished-at="2015-04-16T09:22:14Z">
+    <test name="Default test" duration-ms="15510" started-at="2015-04-16T10:24:45Z" finished-at="2015-04-16T10:25:00Z">
       <class name="galetaGroup.addMovieTest">
-        <test-method status="PASS" signature="init()[pri:0, instance:galetaGroup.addMovieTest@1fbc7afb]" name="init" is-config="true" duration-ms="21610" started-at="2015-04-16T11:21:36Z" finished-at="2015-04-16T11:21:57Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:galetaGroup.addMovieTest@45c8e616]" name="init" is-config="true" duration-ms="7636" started-at="2015-04-16T12:24:45Z" finished-at="2015-04-16T12:24:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="Test2()[pri:0, instance:galetaGroup.addMovieTest@1fbc7afb]" name="Test2" duration-ms="17234" started-at="2015-04-16T11:21:57Z" finished-at="2015-04-16T11:22:14Z">
+        <test-method status="PASS" signature="Test2()[pri:0, instance:galetaGroup.addMovieTest@45c8e616]" name="Test2" duration-ms="6251" started-at="2015-04-16T12:24:52Z" finished-at="2015-04-16T12:24:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test2 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:galetaGroup.addMovieTest@1fbc7afb]" name="tearDown" is-config="true" duration-ms="721" started-at="2015-04-16T11:22:15Z" finished-at="2015-04-16T11:22:15Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:galetaGroup.addMovieTest@45c8e616]" name="tearDown" is-config="true" duration-ms="254" started-at="2015-04-16T12:25:01Z" finished-at="2015-04-16T12:25:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- galetaGroup.addMovieTest -->
+      <class name="galetaGroup.LoginTest">
+        <test-method status="PASS" signature="init()[pri:0, instance:galetaGroup.LoginTest@1134affc]" name="init" is-config="true" duration-ms="269" started-at="2015-04-16T12:24:58Z" finished-at="2015-04-16T12:24:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="Test1()[pri:0, instance:galetaGroup.LoginTest@1134affc]" name="Test1" duration-ms="1341" started-at="2015-04-16T12:24:59Z" finished-at="2015-04-16T12:25:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+      </class> <!-- galetaGroup.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
