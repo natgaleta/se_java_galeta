@@ -5,6 +5,7 @@
 		<parameter name="path" value="/"/>
 		<classes>
 		    <class name="galetaGroup.LoginTest"/>
+		    <class name="galetaGroup.addMovieTest"/>
 		</classes>
 	</test>  
 </suite>
