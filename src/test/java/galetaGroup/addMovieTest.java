@@ -54,14 +54,13 @@ public class AddMovieTest extends galetaGroup.pages.TestBase {
       driver.findElement(By.id("submit")).click();
       action.isElementPresent(By.xpath("//div[@class='maininfo_full']"));  
       String textInfo = driver.findElement(By.xpath("//div[@class='maininfo_full']")).getText();
-      if (!textInfo.contains("new_movie")) {
-    	  throw new Exception("Movie wasn't found"); 
-      }
+      Assert.assertTrue(textInfo.contains("new_movie"), "Movie wasn't found");
+      
       //remove movie 
       driver.findElement(By.cssSelector("img[alt=\"Own\"]")).click();
       driver.findElement(By.cssSelector("img[alt=\"Unseen\"]")).click();
       driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
-      assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+      Assert.assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
       driver.quit();
   }
 
