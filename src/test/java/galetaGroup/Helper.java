@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,22 +38,12 @@ public class Helper {
 		    	WebDriverWait wait = new WebDriverWait(driver, 30);
 		    	wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		        return true;
-		    } catch (NoSuchElementException e) {
+		    } catch (TimeoutException e) {
 		      return false;
 		    }
 	}
 
-    public boolean isElementNotPresent(By by) {
-	    try {
-	    	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	    	 driver.findElement(by);
-	        return false;
-	    } catch (NoSuchElementException e) {
-	      return true;
-	    }
-    }
-    
-    public String closeAlertAndGetItsText() {
+   public String closeAlertAndGetItsText() {
         try {
           Alert alert = driver.switchTo().alert();
           String alertText = alert.getText();

@@ -27,9 +27,9 @@ public class MovieOperationsTests extends galetaGroup.pages.TestBase {
 	  hlp.login("admin", "admin");  
       
 	  //invalid data
-	  hlp.isElementPresent(By.cssSelector("img[alt=\"Add movie\"]"));
+	  Assert.assertTrue(hlp.isElementPresent(By.cssSelector("img[alt=\"Add movie\"]")));
       driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
-      hlp.isElementPresent(By.cssSelector("img[alt=\"Save\"]")); 
+      Assert.assertTrue(hlp.isElementPresent(By.cssSelector("img[alt=\"Save\"]"))); 
       driver.findElement(By.name("name")).clear();
       driver.findElement(By.name("name")).sendKeys("Friends_111");
       driver.findElement(By.name("aka")).clear();
@@ -46,13 +46,13 @@ public class MovieOperationsTests extends galetaGroup.pages.TestBase {
       driver.findElement(By.name("country")).clear();
       driver.findElement(By.name("country")).sendKeys("RU");
       driver.findElement(By.id("submit")).click();
-      hlp.isElementPresent(By.xpath("//input[@class='required digits error']"));
+      Assert.assertTrue(hlp.isElementPresent(By.xpath("//input[@class='required digits error']")));
       
       //add data to make it valid
       driver.findElement(By.name("year")).clear();
       driver.findElement(By.name("year")).sendKeys("2015");
       driver.findElement(By.id("submit")).click();
-      hlp.isElementPresent(By.xpath("//div[@class='maininfo_full']"));  
+      Assert.assertTrue(hlp.isElementPresent(By.xpath("//div[@class='maininfo_full']")));  
       String textInfo = driver.findElement(By.xpath("//div[@class='maininfo_full']")).getText();
       Assert.assertTrue(textInfo.contains("Friends_111"), "Movie wasn't found");
       
