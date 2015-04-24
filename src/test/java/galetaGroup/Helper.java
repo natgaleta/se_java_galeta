@@ -1,6 +1,9 @@
 package galetaGroup;
 
 import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -38,6 +41,16 @@ public class Helper {
 		      return false;
 		    }
 	}
+
+    public boolean isElementNotPresent(By by) {
+	    try {
+	    	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    	 driver.findElement(by);
+	        return false;
+	    } catch (NoSuchElementException e) {
+	      return true;
+	    }
+    }
     
     public String closeAlertAndGetItsText() {
         try {
