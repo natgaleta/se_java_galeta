@@ -13,7 +13,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddMovieTest extends galetaGroup.pages.TestBase {
+public class MovieOperationsTests extends galetaGroup.pages.TestBase {
   
   private StringBuffer verificationErrors = new StringBuffer();
   
@@ -31,7 +31,7 @@ public class AddMovieTest extends galetaGroup.pages.TestBase {
       driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
       hlp.isElementPresent(By.cssSelector("img[alt=\"Save\"]")); 
       driver.findElement(By.name("name")).clear();
-      driver.findElement(By.name("name")).sendKeys("new_movie");
+      driver.findElement(By.name("name")).sendKeys("Friends_111");
       driver.findElement(By.name("aka")).clear();
       driver.findElement(By.name("aka")).sendKeys("new");
       driver.findElement(By.name("duration")).clear();
@@ -54,16 +54,27 @@ public class AddMovieTest extends galetaGroup.pages.TestBase {
       driver.findElement(By.id("submit")).click();
       hlp.isElementPresent(By.xpath("//div[@class='maininfo_full']"));  
       String textInfo = driver.findElement(By.xpath("//div[@class='maininfo_full']")).getText();
-      Assert.assertTrue(textInfo.contains("new_movie"), "Movie wasn't found");
+      Assert.assertTrue(textInfo.contains("Friends_111"), "Movie wasn't found");
       
+      //logout
+      hlp.logout();
+  }
+  
+  @Test
+  public void testRemoveMovie() throws Exception {
+	  
+	  driver.get(baseUrl + "/php4dvd/");
+	  Helper hlp = new Helper(driver, baseUrl);
+	  
+	  //login
+	  hlp.login("admin", "admin"); 
+	  
       //remove movie 
-      driver.findElement(By.cssSelector("img[alt=\"Own\"]")).click();
-      driver.findElement(By.cssSelector("img[alt=\"Unseen\"]")).click();
+      driver.findElement(By.xpath("//div[@alt='Friends_111']")).click();
       driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
       Assert.assertTrue(hlp.closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
           
       //logout
       hlp.logout();
-      driver.quit();
   }
 }
