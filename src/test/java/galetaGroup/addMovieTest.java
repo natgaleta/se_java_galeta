@@ -14,22 +14,22 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddMovieTest extends galetaGroup.pages.TestBase {
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
   
+  private StringBuffer verificationErrors = new StringBuffer();
   
   @Test
   public void testAddMovie() throws Exception {
 	  
-	  Helper action = new Helper(driver, baseUrl);
-	
+	  driver.get(baseUrl + "/php4dvd/");
+	  Helper hlp = new Helper(driver, baseUrl);
+	  
 	  //login
-	  action.login("admin", "admin");  
+	  hlp.login("admin", "admin");  
       
 	  //invalid data
-	  action.isElementPresent(By.cssSelector("img[alt=\"Add movie\"]"));
+	  hlp.isElementPresent(By.cssSelector("img[alt=\"Add movie\"]"));
       driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
-      action.isElementPresent(By.cssSelector("img[alt=\"Save\"]")); 
+      hlp.isElementPresent(By.cssSelector("img[alt=\"Save\"]")); 
       driver.findElement(By.name("name")).clear();
       driver.findElement(By.name("name")).sendKeys("new_movie");
       driver.findElement(By.name("aka")).clear();
@@ -46,13 +46,13 @@ public class AddMovieTest extends galetaGroup.pages.TestBase {
       driver.findElement(By.name("country")).clear();
       driver.findElement(By.name("country")).sendKeys("RU");
       driver.findElement(By.id("submit")).click();
-      action.isElementPresent(By.xpath("//input[@class='required digits error']"));
+      hlp.isElementPresent(By.xpath("//input[@class='required digits error']"));
       
       //add data to make it valid
       driver.findElement(By.name("year")).clear();
       driver.findElement(By.name("year")).sendKeys("2015");
       driver.findElement(By.id("submit")).click();
-      action.isElementPresent(By.xpath("//div[@class='maininfo_full']"));  
+      hlp.isElementPresent(By.xpath("//div[@class='maininfo_full']"));  
       String textInfo = driver.findElement(By.xpath("//div[@class='maininfo_full']")).getText();
       Assert.assertTrue(textInfo.contains("new_movie"), "Movie wasn't found");
       
@@ -60,22 +60,10 @@ public class AddMovieTest extends galetaGroup.pages.TestBase {
       driver.findElement(By.cssSelector("img[alt=\"Own\"]")).click();
       driver.findElement(By.cssSelector("img[alt=\"Unseen\"]")).click();
       driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
-      Assert.assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+      Assert.assertTrue(hlp.closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+          
+      //logout
+      hlp.logout();
       driver.quit();
-  }
-
-   private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
   }
 }
