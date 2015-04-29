@@ -1,4 +1,4 @@
-package galetaGroup.util;
+package ru.st.selenium.util;
 
 /*
  * Bean representing a browser. It contains name, version and platform fields.

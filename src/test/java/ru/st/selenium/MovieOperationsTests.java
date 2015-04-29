@@ -1,4 +1,4 @@
-package galetaGroup;
+package ru.st.selenium;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +13,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class MovieOperationsTests extends galetaGroup.pages.TestBase {
+public class MovieOperationsTests extends ru.st.selenium.pages.TestBase {
   
   private StringBuffer verificationErrors = new StringBuffer();
   
@@ -21,7 +21,7 @@ public class MovieOperationsTests extends galetaGroup.pages.TestBase {
   public void testAddMovie() throws Exception {
 	  
 	  driver.get(baseUrl + "/php4dvd/");
-	  Helper hlp = new Helper(driver, baseUrl);
+	  ApplicationManager hlp = new ApplicationManager(driver, baseUrl);
 	  
 	  //login
 	  hlp.login("admin", "admin");  
@@ -64,7 +64,7 @@ public class MovieOperationsTests extends galetaGroup.pages.TestBase {
   public void testRemoveMovie() throws Exception {
 	  
 	  driver.get(baseUrl + "/php4dvd/");
-	  Helper hlp = new Helper(driver, baseUrl);
+	  ApplicationManager hlp = new ApplicationManager(driver, baseUrl);
 	  
 	  //login
 	  hlp.login("admin", "admin"); 

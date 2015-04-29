@@ -1,4 +1,4 @@
-package galetaGroup;
+package ru.st.selenium;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -14,14 +14,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
-public class SearchMovieTest extends galetaGroup.pages.TestBase {
+public class SearchMovieTest extends ru.st.selenium.pages.TestBase {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Test
   public void testSearchMovie() throws Exception {
 	  driver.get(baseUrl + "/php4dvd/");
-	  Helper hlp = new Helper(driver, baseUrl);
+	  ApplicationManager hlp = new ApplicationManager(driver, baseUrl);
 	  
 	  //login
 	  hlp.login("admin", "admin");

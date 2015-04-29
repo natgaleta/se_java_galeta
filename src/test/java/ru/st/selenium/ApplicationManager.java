@@ -1,4 +1,4 @@
-package galetaGroup;
+package ru.st.selenium;
 
 import static org.junit.Assert.*;
 
@@ -12,12 +12,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Helper {
+public class ApplicationManager {
 	
 	protected WebDriver driver;
 	protected String baseUrl;
 		
-	public Helper(WebDriver driver, String baseUrl) {
+	public ApplicationManager(WebDriver driver, String baseUrl) {
 		super();
 		this.driver = driver;
 		this.baseUrl = baseUrl;
