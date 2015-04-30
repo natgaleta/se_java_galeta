@@ -7,6 +7,7 @@ import ru.st.selenium.model.Film;
 public interface FilmHelper {
 
 	void create(Film film);
+	void isFilmCreated(Film film);
 	void delete(Film film);
 	List<Film> search(String title);
 

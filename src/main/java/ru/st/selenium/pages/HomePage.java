@@ -1,30 +1,51 @@
 package ru.st.selenium.pages;
 
-import org.openqa.selenium.WebDriver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-/*
- * Sample page
- * 
- * @author Sebastiano Armeli-Battana
- */
-public class HomePage extends Page {
+import ru.st.selenium.model.Film;
 
-	private final String H1_TAG = "h1";
+public class HomePage extends AnyPage {
 	
-	@FindBy(how = How.TAG_NAME, using = H1_TAG)
-	@CacheLookup
-	private WebElement h1Element;
+	public boolean acceptNextAlert = true;
 	
-	public HomePage(WebDriver webDriver) {
-		super(webDriver);
+	public HomePage(PageManager pages) {
+		super(pages);
 	}
 	
-	public String getH1() {
-		return h1Element.getText();
-	}
-
+  @FindBy(id = "q")
+  private WebElement searchField;
+	
+  @FindBy(xpath = "//div[@class='movie_cover']")
+  private List<WebElement> movieBox;
+  
+  public HomePage setSearchField(String text) {
+	  searchField.sendKeys(text);
+      return this;
+  }
+  
+  public List<WebElement> getMovieBoxField() {
+	  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='movie_box']")));
+	  return movieBox;
+  }
+  
+  public HomePage submitSearch() {
+	  searchField.sendKeys(Keys.ENTER);
+      return this;
+  }
+  
+  public HomePage ensurePageLoaded() {
+	    super.ensurePageLoaded();
+	    wait.until(presenceOfElementLocated(By.id("q")));
+	    return this;
+  }
+  
 }

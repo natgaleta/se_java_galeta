@@ -3,10 +3,29 @@ package ru.st.selenium.model;
 public class Film {
 
 	private String id;
+	private String duration;
+	private String knownAs;
 	private String imdb;
 	private String title;
 	private String year;
 	private String notes;
+	
+	public String getDuration() {
+		return duration;
+	}
+	public Film setDuration(String duration) {
+		this.duration = duration;
+		return this;
+	}
+	
+	public String getKnownAs() {
+		return knownAs;
+	}
+	public Film setKnownAs(String knownAs) {
+		this.knownAs = knownAs;
+		return this;
+	}
+	
 	public String getId() {
 		return id;
 	}

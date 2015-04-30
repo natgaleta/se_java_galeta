@@ -4,8 +4,7 @@
 	<test name="Test1">
 		<parameter name="path" value="/"/>
 		<classes>
-		    <class name="galetaGroup.testAddMovie"/>
-		    <class name="galetaGroup.testRemoveMovie"/>
+		    <class name="galetaGroup.testAddAndRemoveMovie"/>
 		    <class name="galetaGroup.testSearchMovie"/>
 		</classes>
 	</test>  

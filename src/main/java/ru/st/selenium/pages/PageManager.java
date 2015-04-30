@@ -9,6 +9,9 @@ public class PageManager {
   private WebDriver driver;
 
   public LoginPage loginPage;
+  public AddFilmPage addFilmPage;
+  public FilmViewPage filmViewPage;
+  public HomePage homePage;
   public InternalPage internalPage;
   public UserProfilePage userProfilePage;
   public UserManagementPage userManagementPage;
@@ -16,6 +19,9 @@ public class PageManager {
   public PageManager(WebDriver driver) {
     this.driver = driver;
     loginPage = initElements(new LoginPage(this));
+    addFilmPage = initElements(new AddFilmPage(this));
+    homePage = initElements(new HomePage(this));
+    filmViewPage = initElements(new FilmViewPage(this));
     internalPage = initElements(new InternalPage(this));
     userProfilePage = initElements(new UserProfilePage(this));
     userManagementPage = initElements(new UserManagementPage(this));
